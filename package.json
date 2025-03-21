@@ -1,0 +1,27 @@
+{
+  "name": "back",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "node src/index.js",
+    "build": "echo 'No build step for backend'",
+    "lint": "eslint .",
+    "preview": "echo 'No preview for backend'"
+  },
+  "dependencies": {
+    "@vercel/node": "^5.1.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase": "^11.4.0",
+    "firebase-admin": "^13.1.0",
+    "next": "^15.2.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^8.2.3",
+    "@types/express": "^5.0.0",
+    "eslint": "^9.19.0"
+  }
+}
