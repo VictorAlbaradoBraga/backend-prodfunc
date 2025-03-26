@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { authAdmin, dbAdmin } from "../../utils/firebaseAdmin"; // ✅ Firebase Admin
 import { BadRequestError, sendErrorResponse } from "../../utils/errorHandler";
+import { withAuth } from "../../midleware/middleware"; // Importando o middleware comAuth
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+// Handler de cadastro de usuário
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   // Verificar se é uma requisição POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: { message: "Método não permitido", status: 405 } });
@@ -52,4 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch (error: any) {
     sendErrorResponse(res, error);
   }
-}
+};
+
+// Aplicando o middleware de autenticação (com CORS)
+export default withAuth(handler);
